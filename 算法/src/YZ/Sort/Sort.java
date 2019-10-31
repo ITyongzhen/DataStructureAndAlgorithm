@@ -80,13 +80,16 @@ public abstract class Sort<T extends Comparable<T>> implements Comparable<Sort<T
 //		if (this instanceof RadixSort) return true;
 //		if (this instanceof CountingSort) return true;
 //		if (this instanceof ShellSort) return false;
-
-//		sort((T[]) students);
-//		for (int i = 1; i < students.length; i++) {
-//			int score = students[i].score;
-//			int prevScore = students[i - 1].score;
-//			if (score != prevScore + 10) return false;
-//		}
+		Student[] students = new Student[20];
+		for (int i = 0; i < students.length; i++) {
+			students[i] = new Student(i * 10, 10);
+		}
+		sort((T[]) students);
+		for (int i = 1; i < students.length; i++) {
+			int score = students[i].score;
+			int prevScore = students[i - 1].score;
+			if (score != prevScore + 10) return false;
+		}
 		return true;
 	}
 }
