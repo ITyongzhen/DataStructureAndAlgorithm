@@ -8,17 +8,17 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 //		Integer[] array = {7, 3, 5, 8, 6, 7, 4, 5,19,30,40,50};
-		Integer[] array = Integers.random(10000, 1, 20000);
+		Integer[] array = Integers.random(30000, 1, 200000);
 		testSorts(array, 
-//				new BubbleSort(),
-//				new BubbleSort1(),
-//				new BubbleSort2(),
-//				new InsertionSort1(),
-//				new InsertionSort2(),
-//				new InsertionSort3(),
-//				new SelectionSort(),
-				new HeapSort()
-//				new MergeSort(),
+				new BubbleSort(),
+				new BubbleSort1(),
+				new BubbleSort2(),
+				new InsertionSort1(),
+				new InsertionSort2(),
+				new InsertionSort3(),
+				new SelectionSort(),
+				new HeapSort(),
+				new MergeSort()
 //				new BubbleSort3(),
 //				new QuickSort(),
 //				new ShellSort()
