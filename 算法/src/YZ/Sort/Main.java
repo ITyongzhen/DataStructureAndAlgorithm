@@ -11,17 +11,17 @@ public class Main {
 		Integer[] array = Integers.random(20000, 1, 80000);
 		testSorts(array, 
 				new BubbleSort(),
-				new BubbleSort1(),
-				new BubbleSort2(),
+//				new BubbleSort1(),
+//				new BubbleSort2(),
 				new InsertionSort1(),
-				new InsertionSort2(),
-				new InsertionSort3(),
+//				new InsertionSort2(),
+//				new InsertionSort3(),
 				new SelectionSort(),
 				new HeapSort(),
-				
+				new CountingSort(),
 //				new BubbleSort3(),
 				new QuickSort(),
-//				new ShellSort()
+				new ShellSort(),
 				new MergeSort()
 				);
 		
@@ -33,7 +33,7 @@ public class Main {
 			Asserts.test(Integers.isAscOrder(newArray));
 //			printArray(newArray);
 		}
-//		Arrays.sort(sorts);
+		Arrays.sort(sorts);
 		
 		for (Sort sort : sorts) {
 			System.out.println(sort);

@@ -27,7 +27,7 @@ public class QuickSort<T extends Comparable<T>> extends Sort<T>   {
 	 * @return 轴点元素的最终位置
 	 */
 	private int pivotIndex(int begin,int end) {
-		//随机选择一个元素和begin位置的元素进行交换
+		//随机选择一个元素和begin位置的元素进行交换 
 		swap(begin, begin+(int)Math.random()*(end-begin));
 		// 备份begin位置的元素
 		T pivot = array[begin];
@@ -35,28 +35,26 @@ public class QuickSort<T extends Comparable<T>> extends Sort<T>   {
 		
 		while (begin<end) {
 			while (begin<end) {
-				if (cmp(pivot, array[end])<0) {
+				if (cmp(pivot, array[end])<0) { // 右边元素 > 轴点元素
 					end--;
-				}else {
+				}else {// 右边元素 <= 轴点元素
 					array[begin++] = array[end];
-					break;
+					break; //break退出，从另外一边（begin）开始
 				}
 			}
 			
 			while (begin<end) {
-				if (cmp(pivot, array[begin])>0) {
+				if (cmp(pivot, array[begin])>0) { // 左边元素 < 轴点元素
 					begin++;
-				}else {
+				}else {// 左边元素 >= 轴点元素
 					array[end--] = array[begin];
-					break;
+					break;//break退出，从另外一边（end）开始
 				}
-				
-			}
-			
-			
+			}			
 		}
-		
+		// 将备份的轴点元素放入最终的位置
 		array[begin] = pivot;
+		// 返回轴点元素的位置
 		return begin;
 	}
 }
