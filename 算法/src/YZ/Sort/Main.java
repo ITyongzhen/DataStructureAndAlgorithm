@@ -10,18 +10,20 @@ public class Main {
 //		Integer[] array = {7, 3, 5, 8, 6, 7, 4, 5,19,30,40,50};
 		Integer[] array = Integers.random(20000, 1, 80000);
 		testSorts(array, 
-				new BubbleSort(),
+//				new BubbleSort(),
 //				new BubbleSort1(),
-//				new BubbleSort2(),
-				new InsertionSort1(),
+				new BubbleSort2(),
+//				new InsertionSort1(),
 //				new InsertionSort2(),
-//				new InsertionSort3(),
+				new InsertionSort3(),
 				new SelectionSort(),
 				new HeapSort(),
 				new CountingSort(),
 //				new BubbleSort3(),
 				new QuickSort(),
 				new ShellSort(),
+				new RadixSort(),
+				new BucketSort(),
 				new MergeSort()
 				);
 		
