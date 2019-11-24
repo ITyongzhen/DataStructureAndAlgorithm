@@ -6,6 +6,12 @@ import YZ.Sort.tools.Integers;
 public class Main {
 
 	public static void main(String[] args) {
+
+		
+	}
+	
+	
+	static void testSort(){
 		// TODO Auto-generated method stub
 //		Integer[] array = {7, 3, 5, 8, 6, 7, 4, 5,19,30,40,50};
 		Integer[] array = Integers.random(20000, 1, 80000);
@@ -26,8 +32,8 @@ public class Main {
 				new BucketSort(),
 				new MergeSort()
 				);
-		
 	}
+	
 	static void testSorts(Integer[] array, Sort... sorts) {
 		for (Sort sort : sorts) {
 			Integer[] newArray = Integers.copy(array);
