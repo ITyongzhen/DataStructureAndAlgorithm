@@ -19,7 +19,7 @@ public class _944_删列造序 {
 			arr[i] = A[i].toCharArray();
 		}
 		 int res = 0;
-		 for (int i = 0; i < arr[i].length; i++) {
+		 for (int i = 0; i < arr[0].length; i++) {
 			 
 			 char curChar = arr[0][i];
 			 
@@ -27,10 +27,10 @@ public class _944_删列造序 {
 				 char curChar2 = arr[j][i];
 				if (arr[j][i] < curChar ) {
 					res++;
-					curChar = arr[i][j];
+					curChar = arr[j][i];
 					break;
 				}
-				curChar = arr[i][j];
+				curChar = arr[j][i];
 			}
 			 
 			 
