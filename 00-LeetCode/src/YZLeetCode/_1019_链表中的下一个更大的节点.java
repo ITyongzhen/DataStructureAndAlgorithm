@@ -30,7 +30,6 @@ public class _1019_链表中的下一个更大的节点 {
 		 
 		 themax=Math.max(themax, temp);
        } 
-     
         
         return res;
     }
