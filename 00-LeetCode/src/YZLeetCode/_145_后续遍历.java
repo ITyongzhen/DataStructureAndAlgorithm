@@ -2,6 +2,7 @@ package YZLeetCode;
 
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
@@ -28,15 +29,25 @@ public class _145_后续遍历 {
 	    }
 	 
 	 private List<Integer> postorderTraversal2(TreeNode root,List<Integer> list) {
-	        Stack<TreeNode> stack = new Stack<>();
-	       
-	        while (!stack.isEmpty()) {
-	        	TreeNode node = stack.pop();
-				stack.push(root.left);
-				stack.push(root.right);
-				list.add(node.val);
-			}
-	        
-	        return list; 
+		 LinkedList<TreeNode> stack = new LinkedList<>();
+		    LinkedList<Integer> output = new LinkedList<>();
+		    if (root == null) {
+		      return output;
+		    }
+
+		    stack.add(root);
+		    while (!stack.isEmpty()) {
+		      TreeNode node = stack.pollLast();
+		      output.addFirst(node.val);
+		      if (node.left != null) {
+		        stack.add(node.left);
+		      }
+		      if (node.right != null) {
+		        stack.add(node.right);
+		      }
+		    }
+		    return output;
+
+	
 	    }
 }

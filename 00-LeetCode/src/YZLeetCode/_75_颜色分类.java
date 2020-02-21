@@ -1,7 +1,39 @@
 package YZLeetCode;
 //https://leetcode-cn.com/problems/sort-colors/
 public class _75_颜色分类 {
+	
+	
 	public void sortColors(int[] nums) {
+		if (nums == null || nums.length<2) {
+			return;
+		}
+		 int left = 0;
+	     int right = nums.length -1;
+	     int cur = 0;
+		 while (cur<=right) {
+			if (nums[cur] == 0) {
+				swap(nums, left, cur);
+				left++;
+				cur++;
+			}else if (nums[cur] == 1) {
+				cur++;
+			}else { //nums[cur] == 2
+				swap(nums, right, cur);
+				right--;
+				cur++;
+			}
+			
+		}
+		
+	}
+	  private void swap(int[] nums, int index1, int index2){
+          int temp = nums[index1];
+          nums[index1] = nums[index2];
+          nums[index2] = temp;
+  }
+
+	
+	public void sortColors2(int[] nums) {
         if (nums.length == 0) {
 			return ;
 		}

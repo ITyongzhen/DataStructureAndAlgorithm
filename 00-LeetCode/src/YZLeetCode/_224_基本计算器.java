@@ -2,6 +2,42 @@ package YZLeetCode;
 
 public class _224_基本计算器 {
 	
+	char[] cs;
+	int index = 0;
+	
+	public int calculate2(String s) {
+		
+		cs=s.toCharArray();
+		return helper2();
+		
+	}
+	
+	int helper2() {
+		int sign = 1;
+		int num = 0;
+		int sum = 0;
+		while (index<cs.length) {
+			char ch = cs[index++];
+			if (ch == ' ') {
+				continue;
+			}
+			
+			if (ch>='0' && ch<='9') {
+				num = num *10 + ch-'0';
+			}else if (ch == '(') {
+				num = helper2();
+			}else if (ch==')') {
+				break;
+			}else {
+				sum += num*sign;
+				num = 0;
+				sign = ch=='+'?1:-1;
+			}			
+		}
+		sum += num*sign;
+		return sum;
+	}
+	
 	int i = 0;
 	public int calculate(String s) {
 		

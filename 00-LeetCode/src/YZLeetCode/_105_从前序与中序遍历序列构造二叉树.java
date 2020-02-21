@@ -12,6 +12,56 @@ package YZLeetCode;
 import java.util.HashMap;
 
 public class _105_从前序与中序遍历序列构造二叉树 {
+	public static void main(String[] args) {
+		int[] preorder = new int[] {3,9,20,15,7};
+		int[] inorder = new int[] {9,3,15,20,7};
+		TreeNode rooTreeNode = buildTree2(preorder, inorder);
+		System.out.println(rooTreeNode);
+	}
+	
+	static public TreeNode buildTree2(int[] preorder, int[] inorder) {
+		 if (preorder == null || preorder.length == 0 || inorder == null || inorder.length == 0 || preorder.length != inorder.length) {
+			return null;
+		}
+		 return help(preorder, 0, preorder.length-1, inorder, 0, inorder.length-1);
+		 
+	 }
+	
+	static private TreeNode help(int[] preorder,int preStart, int preEnd, int[] inorder,int inStart,int inEnd) {
+		 if(preStart > preEnd || inStart>inEnd) {
+			 return null;
+		 }
+		 int cur = preorder[preStart];
+		 TreeNode head  = new TreeNode(cur);
+		 int index = 0;
+		 while (inorder[index + inStart] != cur) {
+			 index++;
+		}
+		 
+		 head.left = help(preorder, preStart+1, preStart+index , inorder, inStart, inStart+index);
+		 head.right = help(preorder, preStart+index+1, preEnd, inorder, inStart+index+1, inEnd);
+		 
+		 return head;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	int pre_dix = 0;
 	int[] preorder;
 	int[] inorder;

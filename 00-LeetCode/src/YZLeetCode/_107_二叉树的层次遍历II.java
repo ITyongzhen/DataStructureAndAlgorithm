@@ -1,7 +1,9 @@
 package YZLeetCode;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 // https://leetcode-cn.com/problems/binary-tree-level-order-traversal-ii/
 //给定二叉树 [3,9,20,null,null,15,7],
@@ -19,6 +21,27 @@ import java.util.List;
 //[3]
 //]
 public class _107_二叉树的层次遍历II {
+	public List<List<Integer>> levelOrderBottom2(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<>();
+        if(root == null) return res;
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        while(!queue.isEmpty()){
+            int num = queue.size();
+           List<Integer> temp = new  ArrayList<>();
+            while(num>0){
+                TreeNode cur = queue.poll();
+                if(cur.left!=null)queue.offer(cur.left);
+                if(cur.right!=null)queue.offer(cur.right);
+                temp.add(cur.val);
+                num--;
+            }
+            res.add(0,temp);
+        }
+
+        return res;
+    }
+	
 	public List<List<Integer>> levelOrderBottom(TreeNode root) {
 		 List<List<Integer>> list = new ArrayList<>();
     

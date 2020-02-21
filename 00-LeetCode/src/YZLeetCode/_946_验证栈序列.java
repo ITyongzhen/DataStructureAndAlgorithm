@@ -6,10 +6,29 @@ import java.util.Stack;
 
 // https://leetcode-cn.com/problems/validate-stack-sequences/
 public class _946_验证栈序列 {
+	
+	 public boolean validateStackSequences(int[] pushed, int[] popped) {
+		 int pushLength = pushed.length;
+		 Stack<Integer> stack = new Stack<>();
+		 int popIndex = 0;
+		 
+		for (Integer x : pushed) {
+			stack.push(x);
+			while (!stack.isEmpty() && popIndex<pushLength && stack.peek() == popped[popIndex]) {
+				stack.pop();
+				popIndex++;
+			}			
+		}
+		 
+		 return pushLength == popIndex;
+	 }
+	
+	
+	
 	boolean res = true;
 	int index = -1;
 	int tempIndex = -1;
-	 public boolean validateStackSequences(int[] pushed, int[] popped) {
+	 public boolean validateStackSequences2(int[] pushed, int[] popped) {
 		 Stack<Integer> poppedstack = new Stack<>();
 		 if(popped.length==0 && pushed.length == 0l)return true;
          if(popped.length==0 || pushed.length == 0l)return false;

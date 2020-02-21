@@ -38,7 +38,9 @@ public class QuickSort<T extends Comparable<T>> extends Sort<T>   {
 				if (cmp(pivot, array[end])<0) { // 右边元素 > 轴点元素
 					end--;
 				}else {// 右边元素 <= 轴点元素
-					array[begin++] = array[end];
+//					array[begin++] = array[end];
+					array[begin] = array[end];
+					begin++;
 					break; //break退出，从另外一边（begin）开始
 				}
 			}

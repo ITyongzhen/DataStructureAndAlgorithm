@@ -4,7 +4,24 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class _101_对称二叉树 {
+	
 	 public boolean isSymmetric(TreeNode root) {
+		 return isSym(root, root);
+		 
+	 }
+	
+	 private  boolean isSym(TreeNode node1, TreeNode node2) {
+		if (node1 == null && node2 == null) {
+			return true;
+		}
+		if (node1 == null || node2 == null) {
+			return false;
+		}
+		
+		return (node1.val== node2.val && isSym(node1.left, node2.right)&& isSym(node1.right, node2.left));
+	}
+	
+	 public boolean isSymmetric2(TreeNode root) {
 	     Queue<TreeNode> queue = new LinkedList<>();
 	   queue.add(root);
 	   queue.add(root);
