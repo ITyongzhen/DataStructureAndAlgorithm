@@ -1,16 +1,18 @@
 package YZLeetCode;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
-public class _46_全排列 {
-	
+//https://leetcode-cn.com/problems/permutations-ii/
+public class _47_全排列II {
 	public static void main(String[] args) {
-		List<List<Integer>> resList = permute(new int[]{1,2,3});
+		List<List<Integer>> resList = permute(new int[]{1,1,2});
 		System.out.println(resList);
 	}
 	
-	
+	static HashSet<String> haveSet;
 	static  List<List<Integer>> resList;
 	static  List<Integer> selectedIndex;
 	static  int[] theNums;
@@ -21,9 +23,20 @@ public class _46_全排列 {
 		 }
 		 selectedIndex = new ArrayList<Integer>();
 		 theNums = nums;
+		 haveSet = new HashSet<>();
+		 
 		 place(0);
 		 return resList;
+		 
+		 // resList里面存的是下标
+		 
 	   }
+	
+	static private void changeIndexToNum(List<List<Integer>> resList) {
+		
+		
+	}
+	
 	 
 	static  private void place(int num) {
 		 if (num == theNums.length) {
@@ -33,8 +46,8 @@ public class _46_全排列 {
 		}
 		 
 		 for (int i = 0; i < theNums.length; i++) {
-			if (isOK(theNums[i])) {
-				selectedIndex.add(theNums[i]);
+			if (isOK(i)) {
+				selectedIndex.add(i);
 			    place(num+1);
 			    selectedIndex.remove(selectedIndex.size()-1);
 			}			
@@ -59,7 +72,21 @@ public class _46_全排列 {
 			 myList.add(selectedIndex.get(i));
 		 }
 		 
-		 resList.add(myList);
+		 //这转换
+		 List<Integer> newList = new ArrayList<>();
+		 StringBuffer stringB = new StringBuffer();
+		 for (int i = 0; i < myList.size(); i++) {
+			 int num = theNums[myList.get(i)];
+			 stringB.append(num);
+			 //如果没有重复的，就添加
+			 newList.add(num);
+		 	}
+		 if (!haveSet.contains(stringB.toString())) {
+			 haveSet.add(stringB.toString());
+			 resList.add(newList);
+		 }
+		 
+		
 		 
 	}
 	 
