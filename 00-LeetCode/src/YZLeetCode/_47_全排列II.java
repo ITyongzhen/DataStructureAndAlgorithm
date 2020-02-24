@@ -16,7 +16,7 @@ public class _47_全排列II {
 	static  List<List<Integer>> resList;
 	static  List<Integer> selectedIndex;
 	static  int[] theNums;
-	static public List<List<Integer>> permute(int[] nums) {
+	static public List<List<Integer>> permuteUnique(int[] nums) {
 		 resList = new ArrayList<>();
 		 if (nums == null || nums.length == 0) {
 			return resList;
